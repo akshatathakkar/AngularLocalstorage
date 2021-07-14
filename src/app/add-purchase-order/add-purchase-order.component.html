@@ -1,0 +1,16 @@
+<h2>Add Purchase Order</h2>
+<form [formGroup]='purchaseform'>
+    <label>Order Number</label>
+    <input type="number" placeholder="Order Number" formControlName='ordernumber'> <br><br>
+    <label>Company Name </label>
+    <select formControlName='companyname'></select><br><br>
+    <label>Product Name: </label>
+    <input type="text" placeholder="Product Name" formControlName='productname'><br><br>
+    <label>Rate: </label>
+    <input type="number" placeholder="Rate" formControlName='rate'><br><br>
+    <label>Quantity: </label>
+    <input type="number" placeholder="Quantity Amount" formControlName='quantity'> <br><br>
+    <label>Total Price </label>
+    <input type="number" placeholder="Total Price" formControlName='totalprice'> <br><br>
+    <button (click)="onSubmit()">Submit</button>
+</form>

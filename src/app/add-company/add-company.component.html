@@ -1,0 +1,9 @@
+<h2>Add Company</h2>
+<form [formGroup] ='companyform'>
+    <label>Name: </label>
+    <input type="text" placeholder="Company name" formControlName='name'><br><br>
+    <label>GST: </label>
+    <input type="text" placeholder="GST number" formControlName='gst'><br><br>
+    <button (click)="onSubmit()">Submit</button>
+
+</form>
