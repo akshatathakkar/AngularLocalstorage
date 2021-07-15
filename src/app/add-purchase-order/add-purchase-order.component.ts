@@ -7,10 +7,16 @@ import { FormGroup, FormControl, FormBuilder } from '@angular/forms'
 })
 export class AddPurchaseOrderComponent implements OnInit {
   purchaseform: FormGroup;
-
+  companyList: any;
+  productList: any;
+  totalPrice: number;
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
+    this.productList = JSON.parse(localStorage.getItem('products') || '');
+    console.log(this.productList);
+    this.companyList = JSON.parse(localStorage.getItem('company') || '');
+    console.log(this.companyList);
     this.initializeForm();
   }
   initializeForm(): void {
@@ -20,10 +26,10 @@ export class AddPurchaseOrderComponent implements OnInit {
       productname: '',
       rate: '',
       quantity: '',
-      totalprice: ''
     })
   }
   onSubmit() {
-    console.log(this.purchaseform);
+    this.totalPrice =this.purchaseform.get('quantity')?.value*this.purchaseform.get('rate')?.value;
+    console.log(this.purchaseform.value);
   }
 }

@@ -3,14 +3,17 @@
     <label>Order Number</label>
     <input type="number" placeholder="Order Number" formControlName='ordernumber'> <br><br>
     <label>Company Name </label>
-    <select formControlName='companyname'></select><br><br>
+    <select formControlName="companyname">
+        <option *ngFor="let company of companyList" value="{{company.name}}"> {{company.name}} </option>
+    </select><br><br>
     <label>Product Name: </label>
-    <input type="text" placeholder="Product Name" formControlName='productname'><br><br>
+    <select formControlName="productname">
+        <option *ngFor="let product of productList" value="{{product.name}}"> {{product.name}} </option>
+    </select><br><br>
     <label>Rate: </label>
     <input type="number" placeholder="Rate" formControlName='rate'><br><br>
     <label>Quantity: </label>
     <input type="number" placeholder="Quantity Amount" formControlName='quantity'> <br><br>
-    <label>Total Price </label>
-    <input type="number" placeholder="Total Price" formControlName='totalprice'> <br><br>
     <button (click)="onSubmit()">Submit</button>
+    <p *ngIf="totalPrice"> Total Price is- {{ totalPrice}}</p>
 </form>

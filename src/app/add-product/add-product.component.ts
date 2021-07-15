@@ -25,13 +25,12 @@ export class AddProductComponent implements OnInit {
       name: '',
       companyname: '',
       cost: ''
-    })
+    });
   }
 
   onSubmit() {
-    console.log(this.productform);
+    console.log(this.productform.value);
     this.productList.push(this.productform.value);
     localStorage.setItem('products', JSON.stringify(this.productList));
-
   }
 }
